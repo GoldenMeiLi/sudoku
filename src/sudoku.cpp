@@ -22,7 +22,7 @@ void print_check();
 
 int main()
 {
-char test_list[82] = "000000500400018090018002003009206350040000070051809200100900630020630007005000000";
+char test_list[82] = "000050007379020008080009020200500370000204000065003004040800090900040865600030000";
 int tmp;
 int i,j,k;
 
@@ -53,6 +53,7 @@ cout<<endl;
     while(total > 0)
     {
         singles_candidature();
+        hidden_singles_candidature();
     }
 
 

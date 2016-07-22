@@ -13,5 +13,6 @@ extern int total;
 //-------------------------------------------
 void candidates(int row, int column, int num);
 int singles_candidature();
+int hidden_singles_candidature();
 
 #endif
