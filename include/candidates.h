@@ -12,7 +12,9 @@ extern int total;
 //function-----------------------------------
 //-------------------------------------------
 void candidates(int row, int column, int num);
+void check_sudoku();
 int singles_candidature();
 int hidden_singles_candidature();
+int single_sector_candidates();
 
 #endif

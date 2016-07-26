@@ -1,7 +1,11 @@
 #include<iostream>
+#include<fstream>
 #include"candidates.h"
 using std::cout;
 using std::endl;
+using std::fstream;
+using std::ios;
+//using namespace std;
 //----------------------------------------------------------
 //Golbal VAR------------------------------------------------
 //----------------------------------------------------------
@@ -22,11 +26,15 @@ void print_check();
 
 int main()
 {
-char test_list[82] = "000050007379020008080009020200500370000204000065003004040800090900040865600030000";
+fstream test_file("sudoku.txt",ios::in);
+//test_file.open("sudoku.txt",ios::in);
+//char test_list[82] = "600010403003605200010070000300040908040908020908020007000030050004106700702050006";
+char test_list[82];
+test_file.getline(test_list,sizeof(test_list));
+test_file.close();
+cout<<test_file.eof();
 int tmp;
 int i,j,k;
-
-
 
 reset_table();
 //---------------------------------------------
@@ -52,14 +60,26 @@ cout<<endl;
 //---------------------------------------------
     while(total > 0)
     {
-        singles_candidature();
-        hidden_singles_candidature();
+        if(singles_candidature())
+        {
+            continue;
+        }
+        if(hidden_singles_candidature())
+        {
+            continue;
+        }
+        if(single_sector_candidates())
+        {
+            continue;
+        }
+        cout<<"sorry it can't find the answer"<<endl;
+        break;
     }
-
+//cout<<endl;
 
 print_table();
 cout<<endl;
-
+check_sudoku();
 return 0;
 }
 

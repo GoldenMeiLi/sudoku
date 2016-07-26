@@ -2,11 +2,12 @@
 #include"candidates.h"
 
 
+using std::cout;
 int hidden_singles_candidature()
 {
 
     int i,j,k,m,n,o,p;
-    int sum;
+    int sum,check(0);
 
     for(i=0;i<9;i++)
     {
@@ -32,6 +33,7 @@ int hidden_singles_candidature()
                         if(sum == 1)
                         {
                             candidates(i,j,k+1);
+                            check++; 
                             break;
                         }
                         //-----------------------------------
@@ -48,6 +50,7 @@ int hidden_singles_candidature()
                         if(sum == 1)
                         {
                             candidates(i,j,k+1);
+                            check++; 
                             break;
                         }
                         //-----------------------------------
@@ -69,6 +72,7 @@ int hidden_singles_candidature()
                         if(sum == 1)
                         {
                             candidates(i,j,k+1);
+                            check++; 
                             break;
                         }
                     } 
@@ -78,5 +82,5 @@ int hidden_singles_candidature()
     }
 
 
-return 1;
+return check;
 }

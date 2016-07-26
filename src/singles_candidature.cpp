@@ -2,9 +2,10 @@
 #include"candidates.h"
 
 
+using std::cout;
 int singles_candidature()
 {
-    int i,j,k,num;
+    int i,j,k,num,check(0);
 
     for(i=0;i<9;i++)
     {
@@ -18,10 +19,10 @@ int singles_candidature()
                     num = k + 1;
                 }
                 candidates(i,j,num);
+                check++;
             }
         }
     }
 
-
-return 1;
+return check;
 }
