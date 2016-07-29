@@ -5,7 +5,6 @@ using std::cout;
 using std::endl;
 using std::fstream;
 using std::ios;
-//using namespace std;
 //----------------------------------------------------------
 //Golbal VAR------------------------------------------------
 //----------------------------------------------------------
@@ -21,20 +20,22 @@ int total;
 void reset_table();
 void print_table();
 void print_check();
-
-
+void print_temp(int row, int column);
 
 int main()
 {
-fstream test_file("sudoku.txt",ios::in);
-//test_file.open("sudoku.txt",ios::in);
+fstream test_file;
 //char test_list[82] = "600010403003605200010070000300040908040908020908020007000030050004106700702050006";
 char test_list[82];
-test_file.getline(test_list,sizeof(test_list));
-test_file.close();
-cout<<test_file.eof();
 int tmp;
 int i,j,k;
+
+test_file.open("sudoku.txt",ios::in);
+test_file.getline(test_list,sizeof(test_list));
+test_file.close();
+
+
+
 
 reset_table();
 //---------------------------------------------
@@ -68,7 +69,11 @@ cout<<endl;
         {
             continue;
         }
-        if(single_sector_candidates())
+        if(naked_pairs()/*single_sector_candidates()*/)
+        {
+            continue;
+        }
+        if(single_sector_candidates()/*naked_pairs()*/)
         {
             continue;
         }
@@ -79,6 +84,7 @@ cout<<endl;
 
 print_table();
 cout<<endl;
+//print_temp(6,4);
 check_sudoku();
 return 0;
 }
@@ -144,4 +150,15 @@ void print_check()
         cout<<endl;
     }
 
+}
+
+void print_temp(int row, int column)
+{
+    int k;
+
+    for(k=0;k<9;k++)
+    {
+        cout<<temp_table[row][column][k];
+    }
+    cout<<endl;
 }

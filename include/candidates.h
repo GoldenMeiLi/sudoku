@@ -16,5 +16,6 @@ void check_sudoku();
 int singles_candidature();
 int hidden_singles_candidature();
 int single_sector_candidates();
+int naked_pairs();
 
 #endif

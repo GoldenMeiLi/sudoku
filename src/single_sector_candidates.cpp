@@ -10,7 +10,8 @@ void block_del_column(int row, int column, int num);
 int single_sector_candidates()
 {
     int i,j,k,m,n,o,p;
-    int r_sum,c_sum,br_sum,bc_sum,check(0);
+    int r_sum,c_sum,br_sum,bc_sum;
+    int check(0);
 
     for(i=0;i<9;i++)
     {
